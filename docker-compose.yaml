@@ -1,0 +1,54 @@
+version: '1.0.0'
+volumes:
+  psql-data:
+
+services:
+  nodejs:
+    build: ./.docker/node/
+    image: node:13.8-alpine3.10
+    container_name: Backend-porfolio
+#    restart: unless-stopped
+    env_file:
+      - ./.docker/node/env
+      - ./.docker/postgres/env
+    ports:
+      - 3008:3008
+    volumes:
+      - .:/home/node/app
+    networks:
+      app-env:
+    environment:
+      WAIT_HOSTS: postgres:5432
+      WAIT_HOSTS_TIMEOUT: 90
+      TZ: 'Africa/Johannesburg'
+      PGTZ: 'Africa/Johannesburg'
+    command: sh -c "/wait && npm start"
+  postgres:
+    image: postgres:12
+    container_name: postgres-porfolio
+    env_file:
+      - ./.docker/postgres/env
+    volumes:
+      - ./.database/initial/:/docker-entrypoint-initdb.d/
+      - psql-data:/var/lib/postgresql/data
+    ports:
+        - 5434:5432
+    networks:
+      app-env:
+      interface:
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin-porfolio
+    env_file:
+      - ./.docker/postgres/env
+    depends_on:
+      - postgres
+    ports:
+      - 5090:5090
+    networks:
+      interface:
+
+networks:
+  app-env:
+  interface:

@@ -1,0 +1,9 @@
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=postgres
+POSTGRES_HOST=postgres
+PGADMIN_DEFAULT_EMAIL=admin@admin.com
+PGADMIN_DEFAULT_PASSWORD=admin
+PGADMIN_LISTEN_PORT=5090
+TZ=Africa/Johannesburg
+PGTZ=Africa/Johannesburg

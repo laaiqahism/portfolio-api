@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-api",
+  "version": "1.0.0",
+  "description": "backend for porfolio",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Booysen",
+  "license": "ISC",
+  "devdependencies": {
+    "@hapi/hapi": "^20.2.1",
+    "@hapi/lab": "^22.0.4"
+  },
+  "dependencies": {
+    "@hapi/boom": "^9.0.0",
+    "@hapi/hapi": "^19.1.1",
+    "@hapi/inert": "^6.0.1",
+    "@hapi/joi": "^17.1.0",
+    "@hapi/joi-date": "^2.0.1",
+    "@hapi/vision": "^6.0.0",
+    "bent": "^7.3.12",
+    "hapi-swagger": "^12.1.0",
+    "massive": "^6.6.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
+    "pg": "^7.11.0",
+    "uuid": "^3.3.2"
+  }
+}
