@@ -19,3 +19,28 @@ CREATE TABLE porfolio.intro
     constraint pkintro
         primary key (introid)
 );
+
+CREATE TABLE porfolio.users
+(
+    userid uuid,
+    firstname varchar(50),
+    surname varchar(50),
+    phoneNumber varchar(10),
+    email varchar(50),
+    gender varchar(10),
+    isActive boolean
+    constraint pkuserid
+        primary key(userid)
+);
+
+CREATE TABLE porfolio.role
+(
+    roleid SERIAL,
+    userid uuid,
+    role varchar(10),
+    isActive boolean,
+    constraint pkroleid
+        primary key(roleid)
+    FOREIGN KEY(uuid) 
+    REFERENCES porfolio.users(userid)
+)
