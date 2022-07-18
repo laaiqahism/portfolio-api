@@ -28,19 +28,29 @@ CREATE TABLE porfolio.users
     phoneNumber varchar(10),
     email varchar(50),
     gender varchar(10),
-    isActive boolean
+    isActive boolean,
     constraint pkuserid
         primary key(userid)
 );
 
-CREATE TABLE porfolio.role
+CREATE TABLE porfolio.userrole
 (
     roleid SERIAL,
     userid uuid,
-    role varchar(10),
+    isActive boolean,
+    constraint pkuserroleid
+        primary key(roleid),
+    FOREIGN KEY(userid) 
+    REFERENCES porfolio.users(userid)
+);
+
+CREATE TABLE porfolio.roleid
+(
+    roleid SERIAL,
+    roleName varchar(50),
     isActive boolean,
     constraint pkroleid
-        primary key(roleid)
-    FOREIGN KEY(uuid) 
-    REFERENCES porfolio.users(userid)
-)
+        primary key(roleid),
+    FOREIGN KEY(roleid) 
+    REFERENCES porfolio.userrole(roleid)
+);
