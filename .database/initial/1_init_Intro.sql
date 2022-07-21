@@ -50,7 +50,5 @@ CREATE TABLE porfolio.roleid
     roleName varchar(50),
     isActive boolean,
     constraint pkroleid
-        primary key(roleid),
-    FOREIGN KEY(roleid) 
-    REFERENCES porfolio.userrole(roleid)
+        primary key(roleid)
 );
